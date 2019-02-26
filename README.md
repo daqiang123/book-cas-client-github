@@ -1,4 +1,4 @@
-# Web V1.0 华东政法大学看图书系统网页端
+# Web V1.0 网页端
 
 这个项目使用 [Angular CLI](https://github.com/angular/angular-cli) 7.0.6 版本。
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
