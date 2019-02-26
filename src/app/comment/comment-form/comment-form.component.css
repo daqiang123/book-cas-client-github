@@ -1,0 +1,18 @@
+
+
+.comment-form .box {
+    display: block;
+    width: 100%;
+    min-height: 1.5em;
+    max-height: 86px;
+    overflow-y: auto;
+    resize: none;
+    background: none;
+}
+
+.comment-wrap textarea {
+    resize: vertical;
+    font-size: inherit;
+    border: none;
+    outline: none;
+}

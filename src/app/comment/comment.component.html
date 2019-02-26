@@ -1,0 +1,4 @@
+
+
+<app-comment-form [parent]="" [book]="book" (commentAdded)="commentListing.refresh($event)"></app-comment-form>
+<app-comment-list #commentListing  [book] = "book"></app-comment-list>

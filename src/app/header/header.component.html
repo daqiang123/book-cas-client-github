@@ -1,0 +1,54 @@
+<!--
+	版权所有（C）2018，西安大华时代网络科技有限公司。保留所有权利。
+-->
+<!--
+	页头组件模板
+	@author 刘宏强
+-->
+<header id="header">
+	<div id="top_bg">
+		<div id="top">
+			<div id="top_content">
+				<div id="top-left">
+					<a href="/home/">华政法盘</a>
+				</div>
+				
+				<div id="nav">
+					<ul>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/">首页</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/static/linkMap.jsp">链机构</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/statute/index.jsp">查法条</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/case/index.jsp">寻案例</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/lesson/index.jsp">学课程</a></li>
+						<li><a  class="nav-link active" [routerLink]="['']">看图书</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/lawyer/index.jsp">找律师</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/zhiKu/index.jsp">聚智库</a></li>
+						<li><a href="http://lawdata.ecupl.edu.cn/home/exponent/index.jsp">用数据</a></li>
+					</ul>
+				</div>
+				
+				<div id="top_menubox_login">
+							<div id="zone_logout" *ngIf="currentUser">
+								<a href="javascript:void(0)">用户:&nbsp;{{currentUser.username}}</a>
+								<span>&nbsp;|&nbsp;</span>
+								<a href="/logout" onclick="logout();">注销</a>
+							</div>
+							
+							<div id="zone_login" *ngIf="!currentUser">
+								<a href="http://lawdata.ecupl.edu.cn/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Flogin" onclick="submitCasLogin();" class="submit-cas-login">登录</a>
+								<span>&nbsp;|&nbsp;</span>
+								<a href="javascript:void(0)" onclick="submitCasRegsiger();">注册</a>
+							</div>
+						
+					
+				</div> 
+			</div> 	
+		</div>
+		<div id="logo">
+			
+		</div>
+		
+		</div>
+	
+
+</header>

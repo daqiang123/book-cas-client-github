@@ -1,0 +1,87 @@
+/**
+ *  版权所有（C）2018，西安大华时代网络科技有限公司。保留所有权利。
+ */
+/**
+ * 	图书详情组件样式
+ *
+ * @author 刘宏强
+ */
+
+ .book-detail .container
+ {
+    max-width:1200px;
+ }
+
+ .book-detail  .book-item-info
+ {
+     padding-bottom:5px;
+     font-size:14px;
+ }
+
+ .book-detail li.nav-item a.nav-link.active
+ {
+     background-color: #e4393c
+ }
+
+
+ .book-detail ul.nav-tabs.top-tab
+ {
+    border-bottom: 1px solid #e4393c;
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+ }
+
+
+ .book-detail .item-tab {
+    height: 25px;
+    border-bottom: 2px solid #e4393c;
+}
+
+
+.book-detail  .item-block{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.book-detail .item-tab h3 {
+    line-height: 28px;
+    font-size: 14px;
+    width: 99px;
+    height: 25px;
+    overflow: hidden;
+    color: #FFF;
+    padding-left: 20px;    
+    background: url('/assets/img/item.sprite.png') 0 -13px no-repeat;
+}
+
+.book-detail .item-content {
+    font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+    background: #fff;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 18px 16px 0;
+}
+
+.book-detail .book-related .related-title
+{
+    background-color: #f7f7f7;
+    margin:0;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 37px;
+    height:37px;
+    
+}
+
+.book-detail .book-related .related-title h2{
+    font-size: 1rem;
+    padding: 8px;
+    color: #555555;
+}
+
+.book-detail .book-basic-info
+{
+    padding:16px;
+}

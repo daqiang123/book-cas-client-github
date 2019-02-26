@@ -1,0 +1,129 @@
+/**
+ *  版权所有（C）2018，西安大华时代网络科技有限公司。保留所有权利。
+ */
+/**
+ * 	看图书组件样式
+ *
+ * @author 刘宏强
+ */
+
+
+ .classes-header
+ {
+    background: url(../../assets/img/fenlei.png) 15px 12px no-repeat #f5f5f5;
+
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding: 0 25px 0 39px;
+   
+ }
+ .classes-header .attributeValue {
+    float: left;
+}
+
+
+.classes-header  .attributeImg {
+    float: right;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/img/zhankai.png) no-repeat;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+
+ table .referee-header
+ {
+    text-align: left;
+    margin: 5px 0 0 15px;
+    width:100px;
+ }
+
+ table td{
+    vertical-align:top;
+ }
+
+ 
+ .book-host .book-item
+ {
+    width: 330px;
+    height: 150px;    
+    margin: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #e8e8e8;
+    position: relative;
+ }
+
+ .book-host .book-item:hover{
+     border:1px solid #3e6ec0;
+}
+
+ .book-host .book-item .book-left
+ {
+    width: 104px;
+    height: 136px;    
+    float: left;
+ }
+
+ .book-host .book-item .book-right
+{
+    width: 185px;
+    height: 140px;
+    float: right;
+    margin: 5px 0px 0 0;
+    color: #3e3e3e;
+    font-size: 14px;
+}
+
+.book-host .book-item .book-title
+{
+    width: 185px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px dashed #e6e6e6;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-host .book-item .book-auther
+{
+    width: 184px;
+    height: 50px;
+    line-height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button.btn-search
+{
+    border: 1px solid #ddd;
+    font-weight: 200;
+}
+
+.fp-page{
+    position: relative;
+}
+
+.fp-page .fp-text 
+{
+    line-height: 23px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: verdana;
+    font-style:normal;
+}
+
+.fp-page .fp-text b {
+    color:#e4393c;
+    font-weight: 300;
+}
+
+.fp-page .fp-text i {
+    font-weight: 300;
+    font-style: normal;
+}

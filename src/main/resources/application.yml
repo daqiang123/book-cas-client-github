@@ -1,0 +1,17 @@
+logging:
+  level:
+    org.springframework:
+      security: DEBUG
+      session: TRACE
+server:
+  port: 8080
+security:
+  cas:
+    server:
+      host: http://lawdata.ecupl.edu.cn/cas
+      login: ${security.cas.server.host}/login
+      logout: ${security.cas.server.host}/logout?service=${security.cas.service.host}
+    service:
+      host: http://localhost:8080
+      login: /login
+      logout: /logout

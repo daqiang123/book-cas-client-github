@@ -1,0 +1,148 @@
+
+
+
+<div class="comments comment-wrap comment-list">
+	<div 
+		*ngFor='let commentwrap of comments'  
+		class="item"
+    >
+    
+    <div class="row list " data-id="{{commentwrap.parent.commentId}}">
+			<div class="head">
+				<img 
+					src="./assets/img/default_avatar.png"
+					alt="default_avatar"
+					class="img-circle center-block"
+					width="36"
+					height="36"
+				>
+						
+				
+			</div>
+
+			<div class="cont">
+
+        <div>
+            <span class="text-center comment-name">{{ commentwrap.parent.username }}</span>
+            <span class="text-center moment-ago">{{ commentwrap.parent.commentTime | momentAgo }}</span>
+        </div>
+
+        <div>{{ commentwrap.parent.commentContent }}</div>
+        
+				<div class = "action">  
+
+          <span class="btns">     
+              
+					<a 
+						href="javascript:void(0)" 
+						(click)="upvoted(commentwrap.parent)" 
+						aria-label="Upvotes" 
+						title="赞"
+						class="vote" 
+            >
+            <span 
+							class="glyphicon glyphicon-chevron-up" 
+              aria-hidden="true"></span>
+               {{ commentwrap.parent.starCount }}
+            </a>
+
+            <a
+              href="javascript:void(0)" 
+              (click)="commentwrap.parent.replying = !commentwrap.parent.replying" 
+              aria-label="Upvotes" 
+              title="回复"
+              class="reply" 
+              >
+              <span 
+                class="glyphicon glyphicon-chevron-up" 
+                aria-hidden="true"></span>
+                回复
+              </a>
+          </span>
+
+				<!-- Delete option is commented out as it is not needed for all but admin
+					<button 
+						class="btn btn-link reply-link delete-comment" 
+						(click)="deleteComment(comment)">
+						<span 
+							class="glyphicon glyphicon-remove" 
+							aria-hidden="true"
+						></span> Delete</button>
+				-->
+				</div>
+				<div *ngIf="commentwrap.parent.replying">
+					<app-comment-form [parent]="commentwrap.parent" [book]="book" (commentAdded)="refresh($event)"></app-comment-form>
+				</div>
+			</div>
+    </div>
+
+    <div *ngIf="commentwrap.children.length > 0" class="comments comment_children">
+        <div 
+          *ngFor='let child of commentwrap.children'  
+          class="item"
+          >          
+          <div class=" row">       
+            <div class="cont">
+
+              <div>
+                  <span class="text-center comment-name">{{ child.username }}</span>
+                  <span class="text-center moment-ago">{{ child.commentTime | momentAgo  }}</span>
+              </div>
+
+
+              <div>{{ child.commentContent }}</div>
+              
+              <div class="action">    
+
+
+                  <span class="btns">
+                      <a
+                        href="javascript:void(0)" 
+                        (click)="upvoted(child)" 
+                        aria-label="Upvotes" 
+                        title="赞"
+                        class="vote" 
+                        >
+                        <span 
+                          class="glyphicon glyphicon-chevron-up" 
+                          aria-hidden="true"></span>
+                          {{ child.starCount }} 
+                        </a>
+
+                        <a
+                        href="javascript:void(0)" 
+                        (click)="child.replying = !child.replying " 
+                        aria-label="Upvotes" 
+                        title="回复"
+                        class="reply" 
+                        >
+                        <span 
+                          class="glyphicon glyphicon-chevron-up" 
+                          aria-hidden="true"></span>
+                          回复
+                        </a>
+                </span>
+      
+              <!-- Delete option is commented out as it is not needed for all but admin
+                <button 
+                  class="btn btn-link reply-link delete-comment" 
+                  (click)="deleteComment(comment)">
+                  <span 
+                    class="glyphicon glyphicon-remove" 
+                    aria-hidden="true"
+                  ></span> Delete</button>
+              -->
+              </div>
+              <div *ngIf="child.replying">
+                <app-comment-form [parent]="child" [book]="book" (commentAdded)="refresh($event)"></app-comment-form>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+      </div>
+ 
+    <hr/>
+
+    </div>
+  </div>

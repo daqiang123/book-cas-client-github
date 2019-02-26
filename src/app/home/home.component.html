@@ -1,0 +1,202 @@
+<!--
+  版权所有（C）2018，西安大华时代网络科技有限公司。保留所有权利。
+ -->
+
+<!--
+  看图书组件模板
+  @author 刘宏强
+-->
+
+<main id="main">
+
+  <!-- 导航栏 -->
+  <section id="subintro">
+    <div class="subhead text-dark" id="overview">
+      <div class="container" style="max-width: 1200px;">
+	      <div class="clearfix">
+			  <span class="float-left"><i class="m-icon-big-swapright m-icon-white"></i>
+			  	<a href="http://lawdata.ecupl.edu.cn/home/">首页</a> > <a [routerLink]="['']">看图书</a>
+			  </span>			  
+		  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页面内容 -->
+    <div class="container" style="max-width: 1200px;">
+      <div class="row">
+        <!-- 图书分类 -->
+        <div class="col-12 col-md-2 col-lg-2 section-b1">
+        <div class="card" style="border: 1px solid #bdd9fc;">
+          
+            <div id="accordion">
+              <div class="card" *ngFor="let item of classesList; let i = index">
+                <div class="classes-header" [class.selected]="selectedClasses1[i]" (click)="onSelect1(i,item.classesId)">
+                  <a class="card-link" style="font-size: 14px;display:block; width:100% ; " data-toggle="collapse" href="#collapseOne{{i}}">
+                    
+                    <div class="attributeValue levelOne">分类课程</div>
+							      <div class="attributeImg"></div>
+
+   
+                  </a>                
+                </div>
+                <div id="collapseOne{{i}}" class="collapse classes-items" [ngClass]="{'show':i == '0'}" data-parent="#accordion">
+                  <div class="p-2" style="font-size: 12px;">
+                    <ul class="classesClass" *ngFor="let item of item.childrenClasseses ; let j = index" >
+                      <li value="" [class.selected]="classesId==item.classesId" (click)="onSelect2(j,item.classesId)">{{item.classesName}} |</li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-12 col-md-10 col-lg-10 section-b1" style="padding-left:0px; padding-right:0px;">
+          <!-- 轮播图 -->
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin: 0px 5px 0px 5px">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div *ngIf="carouseles[0] != null" [routerLink]="['/home/detail/' + carouseles[0]['bookId']]">
+                  <img src="{{server}}fileUpload/downloadImage/{{carouseles[0].picture}}"
+                       alt="轮播图" style="width: 100%; height: 280px">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div *ngIf="carouseles[1] != null" [routerLink]="['/home/detail/' + carouseles[1]['bookId']]">
+                  <img src="{{server}}fileUpload/downloadImage/{{carouseles[1].picture}}"
+                       alt="轮播图" style="width: 100%; height: 280px">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div *ngIf="carouseles[2] != null" [routerLink]="['/home/detail/' + carouseles[2]['bookId']]">
+                  <img src="{{server}}fileUpload/downloadImage/{{carouseles[2].picture}}"
+                       alt="轮播图" style="width: 100%; height: 280px">
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon-c" aria-hidden="true">
+                <b> &lt; </b> 
+              </span>
+              <span class="sr-only">上一个</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon-c" aria-hidden="true">
+                <b> &gt; </b>
+              </span>
+              <span class="sr-only">下一个</span>
+            </a>
+          </div>
+          <!-- 推荐书单 -->
+          <div class="row bg-light text-dark" style="padding:10px 0px 10px 0px;margin: 0px 5px 0px 5px">
+            <table >
+              <tr>
+                <td>
+                    <div class="referee-header" style="">
+                      推荐书单：
+                    </div>
+                </td>
+                <td>
+                      <div class="" style="font-size: 14px; padding-left:0px">
+                        <ul class="referreClass" *ngFor="let item of refereeList; let k = index">
+                          <li value="" [class.selected]="selectedReferee[k]" (click)="onSelectReferee(k,item.refereeId)">{{item.refereeName}} 推荐书单</li>
+                        </ul>
+                    </div>
+                </td>
+              </tr>
+            </table>
+
+
+          </div>
+          <!-- 搜索分页 -->
+          <div class="row bg-light text-dark" style="padding:10px 0px 0px 0px;margin: 10px 5px 0px 5px">
+            
+            <div class="col-sm-12 col-md-6">
+              <form class="form" book="form" (ngSubmit)="search()">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="搜索" id="bookName" name="bookName" [(ngModel)]="book.bookName">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-light  btn-search">
+                      <i class="fa fa-search"></i>  搜索
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-sm-12 col-md-6  fp-page">
+                <nav class="pagination-a" *ngIf="page.totalElements">
+                  <ul class="pagination justify-content-end">
+                    <li style="padding:5px 0 0 0">  
+                      <div class="fp-text">                    
+                        <b>{{page.pageNumber+1}}</b>
+                        <em>/</em>
+                        <i>{{page.totalPages}}</i>
+                      </div>
+                    </li>
+                    <custom-pagination *ngIf="page.totalElements" [fastTurnBtn]="false" [totalPage]="page.totalPages"
+                                       [maxSize]="3" [(ngModel)]="pageNumber" (changePage)="changePage($event)">
+                    </custom-pagination>
+                  </ul>
+                </nav>
+            </div>
+          </div>
+          <!-- 图书列表 -->
+          <div class="row book-host" style="padding:10px 0px 0px 0px; margin: 0px 0px 0px 0px">
+            <div class="book-item" *ngFor="let item of rows" style="padding:5px 10px 5px 10px; ">
+              
+                <div class="book-body">
+                  <div class="book-left">
+                       <div class="row list-inline card-box-b">
+                        <div class="col-12 col-sm-12 col-md-12 comment-avatar img-box-b">
+                          <a [routerLink]="['/home/detail/' + item['bookId']]">
+
+                            <img *ngIf="item.bookCover" src="{{server}}fileUpload/downloadImage/{{item.bookCover}}"
+                            alt="图书" class="img-b img-fluid " style="height:136px">
+
+                            <img *ngIf="!item.bookCover" src="./../assets/img/defaultBook.jpg"
+                            alt="图书" class="img-b img-fluid " style="height:136px">
+                          </a>
+                        </div> 
+                      </div>
+                      <div style="position:absolute; left:0px;top:-5px; width:42px;height:42px;">
+                           <img style="float:right;" src="./../assets/img/unscramble.png" class="img-fluid" alt="解读" *ngIf="item.haveUnscramble" [routerLink]="['/home/detail/' + item['bookId']]">
+                      </div>
+                  </div>
+                  <div class="book-right">
+                    <section>
+                       <div class="book-title">
+                          <a [routerLink]="['/home/detail/' + item['bookId']]">                          
+                              {{item.bookName}}             
+                          </a>
+                        </div>
+                        <div>
+                          <div class="book-auther">
+                              {{item.bookAuthor}} 著
+                          </div>
+                          <div>
+                             出版日期 {{item.bookPublishDate | date: 'yyyy-MM-dd' : TimeZoneOffSet}}
+                          </div>
+                       </div>
+                    </section>
+                  </div>              
+              </div>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-sm-12 col-md-12" *ngIf="!page.totalElements">
+              <div class="form-control">
+                没有数据
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>

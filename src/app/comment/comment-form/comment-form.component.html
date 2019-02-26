@@ -1,0 +1,17 @@
+
+<form (ngSubmit)="onSubmit();" class="comment-form">
+
+	<div class="form-group">
+   
+		<textarea class="form-control box" name="message" placeholder="输入评论" required [(ngModel)]="comment.commentContent"></textarea>
+	 
+	</div>
+
+	
+	<div class="form-group action" align="right">
+		<button type="submit" class="btn btn-danger">提交</button>
+		<button *ngIf="parent.replying" type="button" (click)="parent.replying=false" class="btn btn-link">取消</button>
+	</div>
+
+</form>
+

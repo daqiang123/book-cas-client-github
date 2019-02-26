@@ -1,0 +1,26 @@
+
+.related-book-wrap .book-item .card-ext
+{
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    text-align:center;
+}
+
+.related-book-wrap .book-item .card-body-ext
+{
+    padding: 5px;
+}
+
+.related-book-wrap .book-item .book-cover
+{
+    padding: 5px;
+    position: relative;
+}
+
+.related-book-wrap .book-item .book-name
+{
+    display:block;
+    height: 22px;
+    overflow:hidden;
+}
